@@ -1,21 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './src/redux/Store';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './src/page/Home';
+import Login from './src/page/Login';
+import Register from './src/page/Register';
+import MainMenu from './src/page/MainMenu';
+import AddReport from './src/page/AddReport';
+import HistoryReport from './src/page/HistoryReport';
+import Map from './src/page/Map';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createStackNavigator();
+
+class App extends Component {
+  
+  render() {
+    return (
+      <Provider store = {store}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name = "Home" component = {Home}/>
+            <Stack.Screen name = "Login" component = {Login}/>
+            <Stack.Screen name = "Register" component = {Register}/>
+            <Stack.Screen name = "MainMenu" component = {MainMenu}/>
+            <Stack.Screen name = "AddReport" component = {AddReport}/>
+            <Stack.Screen name = "HistoryReport" component = {HistoryReport}/>
+            <Stack.Screen name = "Map" component = {Map}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    );
+  }
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
