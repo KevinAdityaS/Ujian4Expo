@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 
 const reportState = {
 
-    id : 0,
+    idReport : 0,
     name : "",
     incident : "",
     address : "",
@@ -12,11 +12,12 @@ const reportState = {
 
 const userData = {
 
-    id:0,
+    idUser : 0,
     name : "",
     email : "",
     phone : "",
-    address : ""
+    address : "",
+    isLogin : false
 
 }
 

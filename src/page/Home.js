@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <View>
         {
-          (this.props.dataRegis.isLogin ? <TouchableOpacity style={styles.button}><Text style={styles.text}>Logout</Text></TouchableOpacity>
+          (this.props.dataRegister.isLogin ? <TouchableOpacity style={styles.button}><Text style={styles.text}>Logout</Text></TouchableOpacity>
           : 
           <View>
             <TouchableOpacity style={styles.button} onPress={()=>{this.props.navigation.navigate("Login")}}><Text style={styles.text}>Login</Text></TouchableOpacity>
@@ -35,7 +35,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  
+  dataRegister : state.UserReducer
 })
 
 const mapDispatchToProps = {
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
       padding:10,
   },
   text:{
-      textAlign:'center',
-      borderWidth:5,
-  }
+    textAlign:'center',
+    borderWidth:2.5,
+    padding : 5
+}
 });
