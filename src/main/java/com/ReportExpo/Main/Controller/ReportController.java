@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +23,6 @@ public class ReportController {
 	public List<Report> getAll(){
 		
 		return (List<Report>) reportRepository.findAll();
-		
-	}
-	
-	@GetMapping("/{name}")
-	public List<Report> getAllByName(@PathVariable String name){
-		
-		return reportRepository.findByName(name);
 		
 	}
 	
