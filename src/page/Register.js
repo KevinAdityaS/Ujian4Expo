@@ -13,8 +13,8 @@ class Register extends Component {
 
   handleInputData(){
 
-    axios.post("http://192.168.0.106:4646/user/register/", this.props.dataRegister)
-    .them((response) => {
+    axios.post("http://192.168.0.106:4646/user/addUser/", this.props.dataRegister)
+    .then((response) => {
       alert(JSON.stringify(response.data));
       this.props.navigation.navigate("Home")
     })
@@ -28,6 +28,8 @@ class Register extends Component {
     return (
       <View>
         <Card>
+          <Card.Title>REGISTER</Card.Title>
+          <Card.Divider/>
           <Text>Name</Text>
           <TextInput
             style={styles.input}
@@ -79,6 +81,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Register)
 
 const styles = StyleSheet.create({
+
   input: {
     height: 40,
     margin: 12,
@@ -92,4 +95,5 @@ const styles = StyleSheet.create({
       borderWidth:2.5,
       padding : 5
   }
+
 });

@@ -36,6 +36,8 @@ class Login extends Component {
     return (
       <View>
         <Card>
+          <Card.Title>LOGIN</Card.Title>
+          <Card.Divider/>
           <Text> Please input your name to login </Text> 
           <TextInput
             style={styles.input}
@@ -51,7 +53,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  
+  dataName : state.UserReducer.name
 })
 
 const mapDispatchToProps = {
@@ -61,6 +63,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 const styles = StyleSheet.create({
+
   input: {
     height: 40,
     margin: 12,
@@ -73,5 +76,6 @@ const styles = StyleSheet.create({
     textAlign:'center',
     borderWidth:2.5,
     padding : 5
-}
+  }
+
 });
